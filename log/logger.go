@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"strings"
 
@@ -55,7 +54,7 @@ func (*Component) New(_ context.Context, conf *Config) (Logger, error) {
 	case strings.EqualFold(conf.Output, OutputStdout):
 		output = os.Stdout
 	case strings.EqualFold(conf.Output, OutputNull):
-		output = ioutil.Discard
+		output = io.Discard
 	default:
 		return nil, fmt.Errorf("unknown logger output %s", conf.Output)
 	}
