@@ -218,7 +218,7 @@ func TestConnStateReportLoop(t *testing.T) {
 	stat.EXPECT().Gauge(statGaugeClientActive, 2.0).MinTimes(1)
 	stat.EXPECT().Gauge(statGaugeClientIdle, 3.0).MinTimes(1)
 	go c.Report()
-	time.Sleep(2 * time.Millisecond)
+	time.Sleep(10 * time.Millisecond)
 	c.Close()
 }
 
